@@ -5,6 +5,7 @@ services:
     build:
       context: ./docker
       dockerfile: Dockerfile.chrome
+    container_name: chrome
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -24,6 +25,7 @@ services:
     build:
       context: ./docker
       dockerfile: Dockerfile.edge
+    container_name: edge
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -43,6 +45,7 @@ services:
     build:
       context: ./docker
       dockerfile: Dockerfile.firefox
+    container_name: firefox
     shm_size: 2gb
     depends_on:
       - selenium-hub
