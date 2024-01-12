@@ -18,6 +18,12 @@ Start as follows:
 docker compose up -d
 ```
 
+Start as follows (ARM):
+
+```bash
+docker compose -f docker-compose.arm.yaml up -d
+```
+
 ### Stop
 
 Stop as follows:
