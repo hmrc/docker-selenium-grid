@@ -1,0 +1,14 @@
+FROM dockerhub.tax.service.gov.uk/selenium/node-edge:4.16.1-20231219
+
+USER root
+
+RUN apt-get -y update && \
+  apt-get -y install rinetd
+
+COPY --chown=seluser:seluser run-rinetd.sh /opt/bin/run-rinetd.sh
+
+RUN sudo chmod 755 /opt/bin/run-rinetd.sh
+
+USER seluser
+
+ENTRYPOINT ["/bin/bash", "/opt/bin/run-rinetd.sh"]
