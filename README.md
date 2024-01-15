@@ -6,16 +6,10 @@ Selenium Grid via Docker Compose at HMRC.
 
 ### Start
 
-Set `PORTS` environment variable as follows:
-
-```bash
-export PORTS=$(sm2 --status | grep PASS | awk '{ print $8 }' | paste -sd "," -),11000,6010
-```
-
 Start as follows:
 
 ```bash
-docker compose up -d
+./start.sh
 ```
 
 ### Stop
@@ -23,7 +17,7 @@ docker compose up -d
 Stop as follows:
 
 ```bash
-docker compose down
+./stop.sh
 ```
 
 ## License

@@ -1,31 +1,11 @@
 version: "3.8"
 
 services:
-  chrome:
+  chromium:
     build:
       context: ./docker
-      dockerfile: Dockerfile.chrome
-    container_name: chrome
-    shm_size: 2gb
-    depends_on:
-      - selenium-hub
-    environment:
-      - SE_EVENT_BUS_HOST=selenium-hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_GRID_URL=http://localhost:4444
-      - SE_VNC_NO_PASSWORD=1
-      - SE_OPTS=--enable-managed-downloads true
-      - TARGET_IP=host.docker.internal
-      - TARGET_PORTS
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-
-  edge:
-    build:
-      context: ./docker
-      dockerfile: Dockerfile.edge
-    container_name: edge
+      dockerfile: Dockerfile.arm.chromium
+    container_name: chromium
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -44,7 +24,7 @@ services:
   firefox:
     build:
       context: ./docker
-      dockerfile: Dockerfile.firefox
+      dockerfile: Dockerfile.arm.firefox
     container_name: firefox
     shm_size: 2gb
     depends_on:
@@ -62,7 +42,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   selenium-hub:
-    image: dockerhub.tax.service.gov.uk/selenium/hub:4.16.1-20231219
+    image: dockerhub.tax.service.gov.uk/seleniarm/hub:4.16.1-20231230
     container_name: selenium-hub
     ports:
       - 4442:4442
