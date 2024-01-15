@@ -17,7 +17,7 @@ services:
       - SE_VNC_NO_PASSWORD=1
       - SE_OPTS=--enable-managed-downloads true
       - TARGET_IP=host.docker.internal
-      - PORTS=$PORTS
+      - TARGET_PORTS
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
@@ -37,7 +37,7 @@ services:
       - SE_VNC_NO_PASSWORD=1
       - SE_OPTS=--enable-managed-downloads true
       - TARGET_IP=host.docker.internal
-      - PORTS=$PORTS
+      - TARGET_PORTS
     extra_hosts:
       - "host.docker.internal:host-gateway"
 

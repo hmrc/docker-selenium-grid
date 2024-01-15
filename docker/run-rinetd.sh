@@ -1,10 +1,10 @@
 #!/bin/bash
 
-IFS=',' read -r -a PORTS <<< $PORTS
+IFS=',' read -r -a TARGET_PORTS <<< $TARGET_PORTS
 
-for PORT in "${PORTS[@]}"; do
-  echo "Mapping localhost:$PORT to $TARGET_IP:$PORT"
-  echo "localhost $PORT $TARGET_IP $PORT" >> ~/rinetd.conf
+for TARGET_PORT in "${TARGET_PORTS[@]}"; do
+  echo "Mapping localhost:$TARGET_PORT to $TARGET_IP:$TARGET_PORT"
+  echo "localhost $TARGET_PORT $TARGET_IP $TARGET_PORT" >> ~/rinetd.conf
 done
 
 rinetd --conf-file ~/rinetd.conf
