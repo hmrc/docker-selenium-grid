@@ -6,6 +6,16 @@ Selenium Grid via Docker Compose at HMRC.
 
 ### Start
 
+#### Helper script
+
+Start as follows:
+
+```bash
+./start.sh
+```
+
+#### Manual
+
 Set `TARGET_PORTS` environment variable as follows:
 
 ```bash
@@ -26,10 +36,26 @@ docker compose -f docker-compose.arm.yaml up -d
 
 ### Stop
 
+#### Helper script
+
+Stop as follows:
+
+```bash
+./stop.sh
+```
+
+#### Manual
+
 Stop as follows:
 
 ```bash
 docker compose down
+```
+
+Stop as follows (ARM):
+
+```bash
+docker compose -f docker-compose.arm.yaml down
 ```
 
 ## License
