@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export TARGET_PORTS=$(sm2 --status | grep PASS | awk -F '|' '{ print $5 }' | tr -d "[:blank:]" | paste -sd "," -),11000,6010
+export TARGET_PORTS=$(sm2 --status | grep PASS | awk -F '|' '{ print $5 }' | tr -d "[:blank:]" | paste -sd "," -),11000
 
 ARCHITECTURE=$(uname -m)
 
