@@ -1,5 +1,11 @@
 FROM dockerhub.tax.service.gov.uk/seleniarm/node-firefox:4.16.1-20231230
 
+ARG TARGET_IP
+ENV TARGET_IP $TARGET_IP
+
+ARG TARGET_PORTS
+ENV TARGET_PORTS $TARGET_PORTS
+
 USER root
 
 RUN apt-get -y update && \

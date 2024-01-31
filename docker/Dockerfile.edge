@@ -1,5 +1,11 @@
 FROM dockerhub.tax.service.gov.uk/selenium/node-edge:4.16.1-20231219
 
+ARG TARGET_IP
+ENV TARGET_IP $TARGET_IP
+
+ARG TARGET_PORTS
+ENV TARGET_PORTS $TARGET_PORTS
+
 USER root
 
 RUN apt-get -y update && \
