@@ -3,7 +3,7 @@ FROM dockerhub.tax.service.gov.uk/seleniarm/node-chromium:4.16.1-20231230
 USER root
 
 RUN apt-get -y update && \
-  apt-get -y install rinetd
+  apt-get -y install rinetd dnsutils
 
 COPY --chown=seluser:seluser run-rinetd.sh /opt/bin/run-rinetd.sh
 

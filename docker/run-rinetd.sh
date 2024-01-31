@@ -1,5 +1,11 @@
 #!/bin/bash
 
+TARGET_IP="${TARGET_IP:-$(
+  (dig +short host.lima.internal host.docker.internal \
+    && cat /etc/hosts | grep host.linux.internal | awk '{print $1}') \
+  | head -n 1
+)}"
+
 IFS=',' read -r -a TARGET_PORTS <<< $TARGET_PORTS
 
 for TARGET_PORT in "${TARGET_PORTS[@]}"; do
