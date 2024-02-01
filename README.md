@@ -34,6 +34,16 @@ If you need access to other ports on localhost you can add them as a comma separ
 EXTRA_PORTS=1234,5678
 ```
 
+#### Use something other than the docker cli to run docker compose
+
+For example, some people run all their docker stuff through `lima nerdctl`
+
+You can change the command we use to run docker compose by setting a DOCKER_COMPOSE environment variable in a .env file.
+
+```
+DOCKER_COMPOSE="lima nerdctl compose"
+```
+
 ### Stop
 
 Stop as follows:
