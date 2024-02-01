@@ -4,7 +4,7 @@ if test -f .env; then
   source .env
 fi
 
-TARGET_PORTS=$(sm2 --ports | awk '{ print $1 }' | uniq | grep -vxF "0" | paste -sd "," -),11000,27017,$EXTRA_PORTS
+TARGET_PORTS=$(sm2 --ports | awk '{ print $1 }' | uniq | grep -vxF "0" | grep -vxF "6099" | grep -vxF "7900" | paste -sd "," -),11000,27017,$EXTRA_PORTS
 
 DOCKER_COMPOSE="${DOCKER_COMPOSE:-docker compose}"
 DOCKER_COMPOSE_FILE=docker-compose.yaml
