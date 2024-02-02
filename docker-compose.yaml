@@ -21,41 +21,45 @@ services:
     extra_hosts:
       - "host.linux.internal:host-gateway"
 
-#  edge:
-#    build:
-#      context: ./docker
-#      dockerfile: Dockerfile.edge
-#    container_name: edge
-#    shm_size: 2gb
-#    depends_on:
-#      - selenium-hub
-#    environment:
-#      - SE_EVENT_BUS_HOST=selenium-hub
-#      - SE_EVENT_BUS_PUBLISH_PORT=4442
-#      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-#      - SE_NODE_GRID_URL=http://localhost:4444
-#      - SE_VNC_NO_PASSWORD=1
-#      - SE_OPTS=--enable-managed-downloads true
-#    extra_hosts:
-#      - "host.linux.internal:host-gateway"
-#
-#  firefox:
-#    build:
-#      context: ./docker
-#      dockerfile: Dockerfile.firefox
-#    container_name: firefox
-#    shm_size: 2gb
-#    depends_on:
-#      - selenium-hub
-#    environment:
-#      - SE_EVENT_BUS_HOST=selenium-hub
-#      - SE_EVENT_BUS_PUBLISH_PORT=4442
-#      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-#      - SE_NODE_GRID_URL=http://localhost:4444
-#      - SE_VNC_NO_PASSWORD=1
-#      - SE_OPTS=--enable-managed-downloads true
-#    extra_hosts:
-#      - "host.linux.internal:host-gateway"
+  edge:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.edge
+    container_name: edge
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_GRID_URL=http://localhost:4444
+      - SE_VNC_NO_PASSWORD=1
+      - SE_OPTS=--enable-managed-downloads true
+      - TARGET_IP
+      - TARGET_PORTS
+    extra_hosts:
+      - "host.linux.internal:host-gateway"
+
+  firefox:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.firefox
+    container_name: firefox
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_GRID_URL=http://localhost:4444
+      - SE_VNC_NO_PASSWORD=1
+      - SE_OPTS=--enable-managed-downloads true
+      - TARGET_IP
+      - TARGET_PORTS
+    extra_hosts:
+      - "host.linux.internal:host-gateway"
 
   selenium-hub:
     image: dockerhub.tax.service.gov.uk/selenium/hub:4.16.1-20231219

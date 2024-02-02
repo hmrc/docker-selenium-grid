@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x # print the commands we run to the logs
 
 TARGET_IP="${TARGET_IP:-$(
   (dig +short host.lima.internal host.docker.internal \
