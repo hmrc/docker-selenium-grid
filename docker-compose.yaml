@@ -16,10 +16,10 @@ services:
       - SE_NODE_GRID_URL=http://localhost:4444
       - SE_VNC_NO_PASSWORD=1
       - SE_OPTS=--enable-managed-downloads true
-      - TARGET_IP=host.docker.internal
+      - TARGET_IP
       - TARGET_PORTS
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.linux.internal:host-gateway"
 
   edge:
     build:
@@ -36,10 +36,10 @@ services:
       - SE_NODE_GRID_URL=http://localhost:4444
       - SE_VNC_NO_PASSWORD=1
       - SE_OPTS=--enable-managed-downloads true
-      - TARGET_IP=host.docker.internal
+      - TARGET_IP
       - TARGET_PORTS
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.linux.internal:host-gateway"
 
   firefox:
     build:
@@ -56,10 +56,10 @@ services:
       - SE_NODE_GRID_URL=http://localhost:4444
       - SE_VNC_NO_PASSWORD=1
       - SE_OPTS=--enable-managed-downloads true
-      - TARGET_IP=host.docker.internal
+      - TARGET_IP
       - TARGET_PORTS
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.linux.internal:host-gateway"
 
   selenium-hub:
     image: dockerhub.tax.service.gov.uk/selenium/hub:4.16.1-20231219

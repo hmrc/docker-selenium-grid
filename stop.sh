@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ARCHITECTURE=$(uname -m)
-
-if [ $ARCHITECTURE = "arm" ] || [ $ARCHITECTURE = "arm64" ] || [ $ARCHITECTURE = "aarch64" ]; then
-  docker compose -f docker-compose.arm.yaml down
-else
-  docker compose down
+if test -f .env; then
+  source .env
 fi
+
+DOCKER_COMPOSE="${DOCKER_COMPOSE:-docker compose}"
+
+$DOCKER_COMPOSE down --remove-orphans
