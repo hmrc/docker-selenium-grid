@@ -11,6 +11,7 @@ TARGET_IP="${TARGET_IP:-$(
 # so we explicitly set (or override) host.docker.internal in /etc/hosts
 # to the IP for the host that we either get passed or figure out above
 echo "$TARGET_IP host.docker.internal" | sudo tee -a /etc/hosts
+echo "$TARGET_IP www.local.tax.service.gov.uk local.tax.service.gov.uk" | sudo tee -a /etc/hosts # needed by DASS
 
 IFS=',' read -r -a TARGET_PORTS <<< $TARGET_PORTS
 
