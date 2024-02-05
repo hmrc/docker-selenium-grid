@@ -20,6 +20,9 @@ services:
       - TARGET_PORTS
     extra_hosts:
       - "host.linux.internal:host-gateway"
+    ports:
+      - 127.0.0.1::5900
+      - 127.0.0.1::7900
 
   edge:
     build:
@@ -40,6 +43,9 @@ services:
       - TARGET_PORTS
     extra_hosts:
       - "host.linux.internal:host-gateway"
+    ports:
+      - 127.0.0.1::5900
+      - 127.0.0.1::7900
 
   firefox:
     build:
@@ -60,6 +66,9 @@ services:
       - TARGET_PORTS
     extra_hosts:
       - "host.linux.internal:host-gateway"
+    ports:
+      - 127.0.0.1::5900
+      - 127.0.0.1::7900
 
   selenium-hub:
     image: dockerhub.tax.service.gov.uk/selenium/hub:4.16.1-20231219
