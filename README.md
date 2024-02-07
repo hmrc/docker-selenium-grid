@@ -56,6 +56,16 @@ Stop as follows:
 
 Navigate to http://localhost:4444 to view the Selenium Grid dashboard. From there, view Sessions to inspect and debug test execution.
 
+#### NoVNC
+
+You can watch what happens in your container by opening the NoVNC port of the container in your browser. There's a script to make this easier, for example if you want to follow chrome, run:
+
+```
+./watch.sh chrome
+```
+
+And your browser will open to NoVNC and after you click "connect" in the browser, when you run your tests, you'll see what is happening in the browser.
+
 ## License
 
 This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
